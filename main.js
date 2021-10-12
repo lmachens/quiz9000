@@ -34,10 +34,14 @@ function printAnswerIsCorrect() {
   p.className = "correct";
   p.textContent = "Your answer is correct 😁";
   document.body.append(p);
-  disableButtons();
+  setNewQuestion();
 }
 
 function disableButtons() {
   yesButton.disabled = true;
   noButton.disabled = true;
+}
+
+function setNewQuestion() {
+  myQuestion.textContent = "Are you a ninja cat 🐱‍👤?";
 }
