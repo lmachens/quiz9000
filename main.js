@@ -26,6 +26,7 @@ function printAnswerIsIncorrect() {
   p.className = "incorrect";
   p.textContent = "Your answer is incorrect 😭";
   document.body.append(p);
+  disableButtons();
 }
 
 function printAnswerIsCorrect() {
@@ -33,4 +34,10 @@ function printAnswerIsCorrect() {
   p.className = "correct";
   p.textContent = "Your answer is correct 😁";
   document.body.append(p);
+  disableButtons();
+}
+
+function disableButtons() {
+  yesButton.disabled = true;
+  noButton.disabled = true;
 }
