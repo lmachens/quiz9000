@@ -6,17 +6,31 @@ myQuestion.textContent = "Are you a robot 🤖?";
 const yesButton = document.querySelector(".yes");
 yesButton.onclick = function () {
   if (correctAnswer === true) {
-    alert("This is correct 😁");
+    printAnswerIsCorrect();
   } else {
-    alert("This is incorrect 😭");
+    printAnswerIsIncorrect();
   }
 };
 
 const noButton = document.querySelector(".no");
 noButton.onclick = function () {
   if (correctAnswer === false) {
-    alert("This is correct 😁");
+    printAnswerIsCorrect();
   } else {
-    alert("This is incorrect 😭");
+    printAnswerIsIncorrect();
   }
 };
+
+function printAnswerIsIncorrect() {
+  const p = document.createElement("p");
+  p.className = "incorrect";
+  p.textContent = "Your answer is incorrect 😭";
+  document.body.append(p);
+}
+
+function printAnswerIsCorrect() {
+  const p = document.createElement("p");
+  p.className = "correct";
+  p.textContent = "Your answer is correct 😁";
+  document.body.append(p);
+}
