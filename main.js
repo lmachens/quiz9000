@@ -4,11 +4,19 @@ const questions = [
   "Are you a dog 🐶?",
   "Are you a frog 🐸?",
 ];
+const answers = [false, true, false, false];
+
 let questionIndex = 0;
-const correctAnswer = false;
+let correctAnswer = answers[questionIndex];
 
 const myQuestion = document.querySelector(".question");
 myQuestion.textContent = questions[questionIndex];
+
+function setNewQuestion() {
+  questionIndex += 1;
+  correctAnswer = answers[questionIndex];
+  myQuestion.textContent = questions[questionIndex];
+}
 
 const yesButton = document.querySelector(".yes");
 yesButton.onclick = function () {
@@ -47,9 +55,4 @@ function printAnswerIsCorrect() {
 function disableButtons() {
   yesButton.disabled = true;
   noButton.disabled = true;
-}
-
-function setNewQuestion() {
-  questionIndex += 1;
-  myQuestion.textContent = questions[questionIndex];
 }
