@@ -1,17 +1,31 @@
 const questions = [
-  "Are you a robot 🤖?",
-  "Are you a ninja cat 🐱‍👤?",
-  "Are you a dog 🐶?",
-  "Are you a frog 🐸?",
-  "Are you a camel 🐫?",
+  {
+    question: "Are you a robot 🤖?",
+    answer: false,
+  },
+  {
+    question: "Are you a ninja cat 🐱‍👤?",
+    answer: true,
+  },
+  {
+    question: "Are you a dog 🐶?",
+    answer: false,
+  },
+  {
+    question: "Are you a frog 🐸?",
+    answer: false,
+  },
+  {
+    question: "Are you a camel 🐫?",
+    answer: true,
+  },
 ];
-const answers = [false, true, false, false, true];
 
 let questionIndex = 0;
-let correctAnswer = answers[questionIndex];
+let correctAnswer = questions[questionIndex].answer;
 
 const myQuestion = document.querySelector(".question");
-myQuestion.textContent = questions[questionIndex];
+myQuestion.textContent = questions[questionIndex].question;
 updateProgress();
 
 function updateProgress() {
@@ -26,8 +40,8 @@ function setNewQuestion() {
   questionIndex += 1;
   document.body.removeChild(document.querySelector(".correct"));
   if (questionIndex < questions.length) {
-    correctAnswer = answers[questionIndex];
-    myQuestion.textContent = questions[questionIndex];
+    correctAnswer = questions[questionIndex].answer;
+    myQuestion.textContent = questions[questionIndex].question;
     updateProgress();
   } else {
     finishQuiz();
