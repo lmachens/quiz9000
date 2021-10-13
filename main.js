@@ -24,9 +24,21 @@ function updateProgress() {
 
 function setNewQuestion() {
   questionIndex += 1;
-  correctAnswer = answers[questionIndex];
-  myQuestion.textContent = questions[questionIndex];
-  updateProgress();
+  document.body.removeChild(document.querySelector(".correct"));
+  if (questionIndex < questions.length) {
+    correctAnswer = answers[questionIndex];
+    myQuestion.textContent = questions[questionIndex];
+    updateProgress();
+  } else {
+    finishQuiz();
+  }
+}
+
+function finishQuiz() {
+  document.body.removeChild(document.querySelector(".question-card"));
+  const finishElement = document.createElement("p");
+  finishElement.textContent = "Yay you made it 🎉";
+  document.body.append(finishElement);
 }
 
 const yesButton = document.querySelector(".yes");
@@ -60,7 +72,7 @@ function printAnswerIsCorrect() {
   p.className = "correct";
   p.textContent = "Your answer is correct 😁";
   document.body.append(p);
-  setNewQuestion();
+  setTimeout(setNewQuestion, 2000);
 }
 
 function disableButtons() {
