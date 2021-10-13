@@ -1,7 +1,14 @@
+const questions = [
+  "Are you a robot 🤖?",
+  "Are you a ninja cat 🐱‍👤?",
+  "Are you a dog 🐶?",
+  "Are you a frog 🐸?",
+];
+let questionIndex = 0;
 const correctAnswer = false;
 
 const myQuestion = document.querySelector(".question");
-myQuestion.textContent = "Are you a robot 🤖?";
+myQuestion.textContent = questions[questionIndex];
 
 const yesButton = document.querySelector(".yes");
 yesButton.onclick = function () {
@@ -43,5 +50,6 @@ function disableButtons() {
 }
 
 function setNewQuestion() {
-  myQuestion.textContent = "Are you a ninja cat 🐱‍👤?";
+  questionIndex += 1;
+  myQuestion.textContent = questions[questionIndex];
 }
