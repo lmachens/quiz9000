@@ -19,6 +19,10 @@ const questions = [
     question: "Are you a camel 🐫?",
     answer: true,
   },
+  {
+    question: "Are you a clown 🤡?",
+    answer: true,
+  },
 ];
 
 let questionIndex = 0;
@@ -73,18 +77,29 @@ noButton.onclick = function () {
   }
 };
 
+function createMyElement(tagName, properties) {
+  const element = document.createElement(tagName);
+  element.className = properties.className;
+  element.textContent = properties.textContent;
+  return element;
+}
+
 function printAnswerIsIncorrect() {
-  const p = document.createElement("p");
-  p.className = "incorrect";
-  p.textContent = "Your answer is incorrect 😭";
-  document.body.append(p);
+  document.body.append(
+    createMyElement("p", {
+      className: "incorrect",
+      textContent: "Your answer is incorrect 😭",
+    })
+  );
   disableButtons();
 }
 
 function printAnswerIsCorrect() {
-  const p = document.createElement("p");
-  p.className = "correct";
-  p.textContent = "Your answer is correct 😁";
+  const p = createMyElement("p", {
+    className: "correct",
+    textContent: "Your answer is correct 😁",
+  });
+
   document.body.append(p);
   setTimeout(setNewQuestion, 2000);
 }
