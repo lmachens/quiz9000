@@ -3,19 +3,30 @@ const questions = [
   "Are you a ninja cat 🐱‍👤?",
   "Are you a dog 🐶?",
   "Are you a frog 🐸?",
+  "Are you a camel 🐫?",
 ];
-const answers = [false, true, false, false];
+const answers = [false, true, false, false, true];
 
 let questionIndex = 0;
 let correctAnswer = answers[questionIndex];
 
 const myQuestion = document.querySelector(".question");
 myQuestion.textContent = questions[questionIndex];
+updateProgress();
+
+function updateProgress() {
+  const progressElement = document.querySelector(".progress");
+  // progressElement.textContent = "Question " + (questionIndex + 1) + "/" + questions.length;
+  progressElement.textContent = `Question ${questionIndex + 1}/${
+    questions.length
+  }`;
+}
 
 function setNewQuestion() {
   questionIndex += 1;
   correctAnswer = answers[questionIndex];
   myQuestion.textContent = questions[questionIndex];
+  updateProgress();
 }
 
 const yesButton = document.querySelector(".yes");
