@@ -1,0 +1,19 @@
+h1 {
+  color: darkcyan;
+}
+
+.no {
+  background: orange;
+}
+
+.yes {
+  background: green;
+}
+
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
+}
